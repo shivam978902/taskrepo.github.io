@@ -1,0 +1,24 @@
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Homefuly Task</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" style="border:1px solid #36469f;height:100vh; width:220px">
+      <mat-nav-list>
+        <mat-list *ngFor="let i of fillerNav">
+          <mat-list-item style="color:aliceblue"><mat-icon>home</mat-icon>{{i}}</mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <app-home></app-home>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
